@@ -16,6 +16,6 @@ Verder zijn we vandaag begonnen met een nieuw project voor CSS. Het project dat 
 
 ## Dag 3
 
-vandaag heb ik een begin gemaakt aan de css opdracht. Ik heb de control panel gemaakt om de plaat straks te laten draaien. ik heb het lampje werkend gekregen en veranderd nu van kleur aan de hand van welke input gechecked is. morgen wil de knopen vorm geven en een 3d effect geven. 
+Vandaag heb ik een begin gemaakt aan de CSS-opdracht. Ik heb het control panel gemaakt om de plaat straks te laten draaien. Het lampje werkt inmiddels en verandert van kleur afhankelijk van welke input is aangevinkt. Morgen wil ik de knoppen vormgeven en ze een 3D-effect geven.
 
-Ik heb vandaag veel geleerd over hoe je zonder een class en een id html elementen kan sellecteren en hoe je zonder javascript interactie kan laten uitvoeren door de :has pseudo-class te gebruiken.
+Vandaag heb ik veel geleerd over hoe je HTML-elementen kunt selecteren zonder een class of id te gebruiken. Ook heb ik ontdekt hoe je zonder JavaScript interactie kunt toevoegen met behulp van de :has pseudo-class.
