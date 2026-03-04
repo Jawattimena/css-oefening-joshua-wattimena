@@ -10,8 +10,9 @@ We hebben vandaag veel geluisterd, naar andere klasgenoten en naar Sanne. zelf h
 
 Verder zijn we vandaag begonnen met een nieuw project voor CSS. Het project dat ik gekozen heb is de control pannel. daarmee ben ik al bezig geweest met een paar schetsen.
 
-![IMG_6396.jpg](attachment:094d8e5b-e4e3-43be-9598-37998f271926:IMG_6396.jpg)
-![IMG_6397.jpg](attachment:7885890a-a046-4d41-8c15-2ab95338231b:IMG_6397.jpg)
+![schets1-css](https://github.com/user-attachments/assets/e82d9ff1-3be8-4577-b74f-5a0a49c03d6c)
+![schets2-css](https://github.com/user-attachments/assets/638e78ae-da8e-4c4f-9f18-8b4bebd6111f)
+
 
 ## Dag 3
 
