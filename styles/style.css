@@ -1,0 +1,118 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fff6eb;
+  /* background-color: #1d1d1d; */
+}
+
+div:nth-child(1) {
+  display: flex;
+  gap: 3em;
+  align-items: center;
+  padding: 2em 5em;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px -50px 30px -20px;
+}
+
+/* ON-OFF BUTTON ---------------------------------------- */
+
+span:nth-child(1) {
+  position: relative;
+  width: 2em;
+  height: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1em;
+}
+
+span:nth-child(1) > label {
+  position: absolute;
+  z-index: 1;
+  color: white;
+}
+
+span:nth-child(1) > input {
+  appearance: none;
+  background-color: red;
+  border: 2px solid red;
+  border-radius: 3em;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+span:nth-child(1) > input:checked {
+  appearance: none;
+  background-color: green;
+  border: 2px solid green;
+  border-radius: 3em;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+/* LIGHT ---------------------------------------- */
+
+div:nth-child(1):has(input[type="checkbox"]) span:last-of-type {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1em;
+  width: 1em;
+}
+
+/* zerostate */
+div:nth-child(1):has(input[name="on-off"]) span:last-of-type span {
+  height: 1em;
+  width: 1em;
+  border: #dddddd 1px solid;
+  background: radial-gradient(circle at 60% 30%, #ffffff, #d2d2d2, #d0d0d0);
+  box-shadow: rgba(0, 0, 0, 0.2) -1px 3px 3px 0px;
+}
+
+/* on state (red light) - stop state (red light)*/
+div:nth-child(1):has(input[name="on-off"]:checked) span:last-of-type span {
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  border: #ff8762 1px solid;
+  background: radial-gradient(circle at 50% 40%, #ffe5a9 12%, #ffad8d 40%, #ff4a4a 70%);
+  box-shadow: rgb(255, 66, 60) 0 0 40px 25px, inset #ff9684 0 -1.5px 3px, rgb(255, 157, 20) 0 0px 10px;
+  transition: all 0.05s ease;
+}
+
+/* play state (green light)*/
+div:nth-child(1):has(input[name="on-off"]:checked):has(input[name="control-buttons"]:nth-of-type(1):checked) span:last-of-type span {
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  border: #bbffbc 1px solid;
+  background: radial-gradient(circle at 50% 40%, #f3ffec 12%, #b3ffbc 40%, #7aff4a 70%);
+  box-shadow: rgb(72, 255, 51) 0 0 40px 25px, inset #2ee800 0 -1.5px 3px, rgb(26, 255, 0) 0 0px 10px;
+  transition: all 0.05s ease;
+}
+
+/* pause state (orange light)*/
+
+div:nth-child(1):has(input[name="on-off"]:checked):has(input[name="control-buttons"]:nth-of-type(2):checked) span:last-of-type span {
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  border: #ffab6f 1px solid;
+  background: radial-gradient(circle at 50% 40%, #ffe869 12%, #ffc67c 30%, #ff8c4a 70%);
+  box-shadow: rgb(255, 136, 51) 0 0 40px 25px, inset #e86c00 0 -1.5px 3px, rgb(255, 119, 0) 0 0px 10px;
+  transition: all 0.05s ease;
+}
+
+/* (bronnen:https: //developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/radial-gradient)*/
+/* (bronnen:https: https://codepen.io/ephbaum/pen/MYJNaj)*/
+/* -------------------------------------------------------------------------------------------------------------------------------- */
