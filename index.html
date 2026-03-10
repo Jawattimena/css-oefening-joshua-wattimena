@@ -7,23 +7,41 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- DIV 1 controls----------------------------------------------------------------------- -->
     <div>
+      <!-- span 1 ----------------------------------------------------------------------- -->
       <span>
         <label for="on-off">On</label>
         <input type="checkbox" name="on-off" id="on-off" />
       </span>
+
+      <!-- form 1 ----------------------------------------------------------------------- -->
+      <form>
+        <span>
+          <label for="play" aria-label="Play button"
+            ><span role="text">PLAY</span></label
+          >
+          <input type="radio" name="control-buttons" id="play" />
+        </span>
+        <span>
+          <label for="pause" aria-label="Pause button"
+            ><span role="text">PAUSE</span></label
+          >
+          <input type="radio" name="control-buttons" id="pause" />
+        </span>
+        <span>
+          <input type="reset" value="STOP" name="control-buttons" id="stop" />
+        </span>
+      </form>
+
+      <!-- feedback: 
+      input mag in een label 
+      input reset mag naar button reset -->
+
+      <!-- span 2 ----------------------------------------------------------------------- -->
       <span>
-        <label for="play">Play</label>
-        <input type="radio" name="control-buttons" id="play" />
-
-        <label for="pause">pause</label>
-        <input type="radio" name="control-buttons" id="pause" />
-
-        <label for="stop">stop</label>
-        <input type="radio" name="control-buttons" id="stop" />
+        <span></span>
       </span>
-
-      <span><span></span></span>
     </div>
   </body>
 </html>
