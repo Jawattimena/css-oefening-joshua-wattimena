@@ -67,8 +67,21 @@ Daarna ben ik gestart met het stylen van de radiobuttons en het vormgeven van de
 
 Het kostte veel tijd om de knoppen technisch goed te laten functioneren én visueel netjes te krijgen. Vooral het precies afstellen van details nam meer tijd in beslag dan verwacht.
 
+### Feedback
+
+input mag in een label
+input reset mag naar button reset
+
 ### Vooruitblik
 
 De volgende stap is het verbeteren van de structuur van de styling. Ik ga alle basiskleuren omzetten naar CSS-variabelen, zodat de code overzichtelijker wordt en aanpassingen sneller kunnen worden doorgevoerd.
 
 Deze week stond in het teken van het combineren van techniek en design: het toevoegen van interactieve elementen, het verbeteren van realistisch gedrag en het verfijnen van visuele details.
+
+## Dag 5
+
+Vandaag wilde ik de platen laten opkomen en draaien, maar helaas ben ik daar niet aan toegekomen. In plaats daarvan heb ik mijn hele CSS opnieuw gestructureerd en genest waar dat nodig was. Ik heb veel geleerd over het nesten van CSS met de &-tekens en hoe je dit goed toepast. Het is erg handig om te weten, omdat mijn CSS daardoor netjes en overzichtelijk blijft.
+
+Daarnaast heb ik vandaag de knoppen volledig vormgegeven. Het enige wat ik nog moet doen, is ervoor zorgen dat de verlichting van de knoppen ook uitgaat wanneer de aan-knop wordt uitgeschakeld. Als dat klaar is, zijn de knoppen helemaal af en kan ik verder met de platen die omhoogkomen.
+
+Dit ga ik morgen allemaal doen.
