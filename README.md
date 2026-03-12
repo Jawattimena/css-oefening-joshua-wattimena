@@ -85,3 +85,9 @@ Vandaag wilde ik de platen laten opkomen en draaien, maar helaas ben ik daar nie
 Daarnaast heb ik vandaag de knoppen volledig vormgegeven. Het enige wat ik nog moet doen, is ervoor zorgen dat de verlichting van de knoppen ook uitgaat wanneer de aan-knop wordt uitgeschakeld. Als dat klaar is, zijn de knoppen helemaal af en kan ik verder met de platen die omhoogkomen.
 
 Dit ga ik morgen allemaal doen.
+
+## Dag 6
+
+Vandaag heb ik de knoppen **‘verder’** en **‘terug’** toegevoegd. Deze wil ik straks koppelen aan de carousel waarin de platen zitten. Daarnaast heb ik ervoor gezorgd dat alle lampjes uitgaan wanneer het apparaat echt uitstaat. Dat probleem is nu dus opgelost.
+
+Ik heb Sanne gevraagd hoe ik de carousel het beste kan maken en hoe scroll snap precies werkt. Verder heb ik vandaag niet heel veel gedaan, maar ik weet nu wel waar ik moet beginnen. Hier ga ik zo snel mogelijk mee verder, zodat het systeem eindelijk iets kan aansturen.
