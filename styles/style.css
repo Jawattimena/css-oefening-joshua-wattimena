@@ -69,216 +69,265 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 100vh;
   background-color: var(--Background);
-  /* background-color: #1d1d1d; */
-}
 
-div:nth-child(1) {
-  display: flex;
-  gap: 3em;
-  align-items: center;
-  padding: 2em 8em;
-  box-shadow: oklch(0 0 0 / 40%) 0px -70px 60px -50px;
-}
+  > div:nth-child(1) {
+    display: flex;
+    gap: 3em;
+    align-items: center;
+    padding: 2em 8em 1em 8em;
+    box-shadow: oklch(0 0 0 / 40%) 0px -70px 60px -50px;
 
-/* ON-OFF BUTTON ------------------------------------------------------------------------------------------------------------ */
-label[for="on-off"] {
-  position: relative;
-  width: 4em;
-  height: 4em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 1em;
-  border: var(--button-soccet) 0.3em solid;
-  border-radius: 3em;
+    /* ON-OFF BUTTON ------------------------------------------------------------------------------------------------------------ */
+    label[for="on-off"] {
+      position: relative;
+      width: 4em;
+      height: 4em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1em;
+      border: var(--button-soccet) 0.3em solid;
+      border-radius: 3em;
 
-  svg {
-    position: absolute;
-    z-index: 1;
-    height: 1.5em;
-    aspect-ratio: 1/1;
-    fill: var(--button-soccet);
-  }
+      svg {
+        position: absolute;
+        z-index: 1;
+        height: 1.5em;
+        aspect-ratio: 1/1;
+        fill: var(--button-soccet);
+      }
 
-  input {
-    appearance: none;
-    background-color: var(--button-colors);
-    border-top: var(--button-highlight);
-    box-shadow: var(--button-shadow-on-button);
-    border-radius: 3em;
-    width: 100%;
-    height: 100%;
-    position: absolute;
+      input {
+        appearance: none;
+        background-color: var(--button-colors);
+        border-top: var(--button-highlight);
+        box-shadow: var(--button-shadow-on-button);
+        border-radius: 3em;
+        width: 100%;
+        height: 100%;
+        position: absolute;
 
-    &:checked {
-      background-color: var(--button-colors-pressed);
-      box-shadow: var(--button-shadow-pressed);
-      border-top: none;
+        &:checked {
+          background-color: var(--button-colors-pressed);
+          box-shadow: var(--button-shadow-pressed);
+          border-top: none;
+        }
+      }
+      &:has(input:checked) svg {
+        fill: var(--light-in-button-pressed);
+        filter: drop-shadow(var(--light-in-button-pressed) 0 0 10px);
+      }
+    }
+
+    /* STYLING BUTTONS --------------------------------------------------------------------------------------------------------------------- */
+    /* (bronnen: https://uiverse.io/m1her/splendid-rat-12) */
+    /* Omhulsel van de knoppen */
+    form {
+      display: flex;
+      align-items: center;
+      background-color: var(--button-soccet);
+      height: 4em;
+      width: 20em;
+      border-radius: 0.7em;
+      gap: 2px;
+      padding: 4px;
+
+      /* Styling knoppen */
+      label,
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        background-color: var(--button-colors);
+        flex: 1;
+        box-shadow: var(--button-shadow);
+        border-top: var(--button-highlight);
+        border-radius: 0.1em;
+        font-family: poppins, sans-serif;
+        font-size: 1em;
+        font-weight: 600;
+
+        /* Radio buttons laten verdwijnen */
+        input {
+          appearance: none;
+          border: none;
+          background: none;
+        }
+        /* Hover pointer */
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      /* Styling per knop */
+      /* Play */
+      label:nth-child(1) {
+        border-radius: 0.5em 0.1em 0.1em 0.5em;
+      }
+
+      /* Stop */
+      button {
+        appearance: none;
+        border: none;
+        border-radius: 0.1em 0.5em 0.5em 0.1em;
+        border-top: var(--button-highlight);
+
+        &:active {
+          background-color: var(--button-colors-pressed);
+          border: transparent;
+          transform: scale(0.99);
+          box-shadow: var(--button-shadow-pressed);
+        }
+      }
+
+      svg {
+        height: 1.5em;
+        aspect-ratio: 1/1;
+        fill: var(--button-soccet);
+      }
+
+      label:has(input:checked),
+      label:has(input:active) {
+        background-color: var(--button-colors-pressed);
+        border-top: none;
+        color: var(--light-in-button-pressed);
+        text-shadow: var(--light-in-button-pressed) 0 0 10px;
+        box-shadow: var(--button-shadow-pressed);
+        transform: scale(0.99);
+        svg {
+          fill: var(--light-in-button-pressed);
+          filter: drop-shadow(var(--light-in-button-pressed) 0 0 10px);
+        }
+      }
+    }
+
+    /* INGEDRUKTE radiobuttons when OFF */
+    &:not(:has(input[name="on-off"]:checked)) {
+      label:has(input:checked) svg,
+      label:has(input:active) svg {
+        fill: var(--button-soccet);
+        filter: none;
+      }
+    }
+
+    /* LED LIGHT ---------------------------------------------------------------------------------------------------------------------------- */
+    /* (Bronnen: https://chatgpt.com/share/69a97310-f0c4-800c-8fec-fb9733e469b3) */
+    /* (Bronnen: https://claude.ai/share/81ab545a-42a5-437b-aa9d-489a09c4873a) */
+    /* (bronnen:https: //developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/radial-gradient)*/
+    /* (bronnen:https: https://codepen.io/ephbaum/pen/MYJNaj)*/
+
+    /* OFF ----------------------------------------------------*/
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 4em;
+      width: 4em;
+
+      span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1em;
+      }
+    }
+
+    &:has(input[name="on-off"]) span span {
+      height: 1em;
+      width: 1em;
+      border-top: var(--light-highlight);
+      background: var(--light-off);
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 3px 0px;
+    }
+
+    /* ON -----------------------------------------------------*/
+    &:has(input[name="on-off"]:checked) {
+      /* ON - STOP | RED light */
+      span:last-of-type span {
+        border-radius: 1em;
+        height: 1em;
+        width: 1em;
+        border: #ff8762 1px solid;
+        background: var(--light-red);
+        box-shadow: var(--Light-red-glow);
+        transition: all 0.05s ease;
+      }
+
+      /* ON - PAUSE | ORANGE light */
+      &:has(> form label:nth-child(2) input:checked) > span span {
+        border-radius: 1em;
+        height: 1em;
+        width: 1em;
+        border: #ffab6f 1px solid;
+        background: var(--Light-orange);
+        box-shadow: var(--Light-orange-glow);
+        transition: all 0.05s ease;
+      }
+
+      /* Light ON - PLAY | GREEN light*/
+      &:has(> form > label:nth-child(1) input:checked) > span span {
+        border-radius: 1em;
+        height: 1em;
+        width: 1em;
+        border: #bbffbc 1px solid;
+        background: var(--Light-green);
+        box-shadow: var(--Light-green-glow);
+        transition: all 0.05s ease;
+      }
     }
   }
-  &:has(input:checked) svg {
-    fill: var(--light-in-button-pressed);
-    filter: drop-shadow(var(--light-in-button-pressed) 0 0 10px);
-  }
-}
 
-/* STYLING BUTTONS --------------------------------------------------------------------------------------------------------------------- */
-/* (bronnen: https://uiverse.io/m1her/splendid-rat-12) */
-/* Omhulsel van de knoppen */
-form {
-  display: flex;
-  align-items: center;
-  background-color: var(--button-soccet);
-  height: 4em;
-  width: 20em;
-  border-radius: 0.7em;
-  gap: 2px;
-  padding: 4px;
+  /* 2e DIV -------------------------------------------------------------------------------------------------------------------------------- */
 
-  /* Styling knoppen */
-  label,
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    background-color: var(--button-colors);
-    flex: 1;
-    box-shadow: var(--button-shadow);
-    border-top: var(--button-highlight);
-    border-radius: 0.1em;
-    font-family: poppins, sans-serif;
-    font-size: 1em;
-    font-weight: 600;
+  > div:nth-child(2) {
+    span {
+      display: flex;
+      align-items: center;
+      background-color: var(--button-soccet);
+      height: 3em;
+      width: 20em;
+      border-radius: 0.7em;
+      gap: 2px;
+      padding: 4px;
+    }
 
-    /* Radio buttons laten verdwijnen */
-    input {
+    button {
       appearance: none;
       border: none;
-      background: none;
-    }
-    /* Hover pointer */
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  /* Styling per knop */
-  /* Play */
-  label:nth-child(1) {
-    border-radius: 0.5em 0.1em 0.1em 0.5em;
-  }
-
-  /* Stop */
-  button {
-    appearance: none;
-    border: none;
-    border-radius: 0.1em 0.5em 0.5em 0.1em;
-    border-top: var(--button-highlight);
-
-    &:active {
-      background-color: var(--button-colors-pressed);
-      border: transparent;
-      transform: scale(0.99);
-      box-shadow: var(--button-shadow-pressed);
-    }
-  }
-
-  svg {
-    height: 1.5em;
-    aspect-ratio: 1/1;
-    fill: var(--button-soccet);
-  }
-
-  label:has(input:checked),
-  label:has(input:active) {
-    background-color: var(--button-colors-pressed);
-    border-top: none;
-    color: var(--light-in-button-pressed);
-    text-shadow: var(--light-in-button-pressed) 0 0 10px;
-    box-shadow: var(--button-shadow-pressed);
-    transform: scale(0.99);
-    svg {
-      fill: var(--light-in-button-pressed);
-      filter: drop-shadow(var(--light-in-button-pressed) 0 0 10px);
-    }
-    /* INGEDRUKTE radiobuttons */
-  }
-  /* 
-  div:nth-child(1):has(input[name="on-off"]:checked) {
-    label:has(input:checked),
-    label:has(input:active) svg {
-      fill: var(--light-in-button-pressed);
-      filter: drop-shadow(var(--light-in-button-pressed) 0 0 10px);
-    }
-  } */
-}
-
-/* LED LIGHT ---------------------------------------------------------------------------------------------------------------------------- */
-/* (Bronnen: https://chatgpt.com/share/69a97310-f0c4-800c-8fec-fb9733e469b3) */
-/* (Bronnen: https://claude.ai/share/81ab545a-42a5-437b-aa9d-489a09c4873a) */
-/* (bronnen:https: //developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/radial-gradient)*/
-/* (bronnen:https: https://codepen.io/ephbaum/pen/MYJNaj)*/
-div:nth-child(1) {
-  /* OFF ----------------------------------------------------*/
-  span:last-of-type span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 1em;
-    width: 1em;
-    border-radius: 1em;
-  }
-  &:has(input[name="on-off"]) span:last-of-type span {
-    height: 1em;
-    width: 1em;
-    border-top: var(--light-highlight);
-    background: var(--light-off);
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 3px 0px;
-  }
-
-  /* ON -----------------------------------------------------*/
-  &:has(input[name="on-off"]:checked) {
-    /* ON - STOP | RED light */
-    span:last-of-type span {
+      height: 100%;
+      width: 100%;
+      background-color: var(--button-colors);
+      border-top: var(--light-highlight);
       border-radius: 1em;
-      height: 1em;
-      width: 1em;
-      border: #ff8762 1px solid;
-      background: var(--light-red);
-      box-shadow: var(--Light-red-glow);
-      transition: all 0.05s ease;
-    }
+      box-shadow: var(--button-shadow);
 
-    /* ON - PAUSE | ORANGE light */
-    &:has(> form label:nth-child(2) input:checked) > span:last-of-type span {
-      border-radius: 1em;
-      height: 1em;
-      width: 1em;
-      border: #ffab6f 1px solid;
-      background: var(--Light-orange);
-      box-shadow: var(--Light-orange-glow);
-      transition: all 0.05s ease;
-    }
+      &:first-of-type {
+        border-radius: 0.5em 0.1em 0.1em 0.5em;
+      }
+      &:last-of-type {
+        border-radius: 0.1em 0.5em 0.5em 0.1em;
+      }
+      &:hover {
+        cursor: pointer;
+      }
 
-    /* Light ON - PLAY | GREEN light*/
-    &:has(> form > label:nth-child(1) input:checked) > span:last-of-type span {
-      border-radius: 1em;
-      height: 1em;
-      width: 1em;
-      border: #bbffbc 1px solid;
-      background: var(--Light-green);
-      box-shadow: var(--Light-green-glow);
-      transition: all 0.05s ease;
+      &:active {
+        background-color: var(--button-colors-pressed);
+        border: transparent;
+        transform: scale(0.99);
+        box-shadow: var(--button-shadow-pressed);
+      }
+
+      svg {
+        height: 1.5em;
+        aspect-ratio: 1/1;
+        fill: var(--button-soccet);
+      }
     }
   }
 }
-/* 
-div:nth-child(1):not(input[name="on-off"]:checked) form svg {
-  fill: var(--button-soccet);
-  filter: none;
-} */
-
-/* -------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------ */
