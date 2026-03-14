@@ -95,18 +95,16 @@ body {
     display: flex;
     anchor-name: --platen;
     position-anchor: --controlpanel;
-    width: 30em;
-    aspect-ratio: 1.5/1;
+    height: 20em;
+    aspect-ratio: 2/1;
     background-color: var(--Background);
-    /* box-shadow: inset oklch(0 0 0 / 40%) 0px -70px 60px -50px; */
-    /* border: red 1px solid; */
-
     overflow-x: hidden;
     overflow-y: hidden;
     overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
 
     /* Styling van de caroucel buttons */
+    /* (Bron: Sanne) */
     &::scroll-button(*) {
       position-area: center;
       position: fixed;
@@ -150,23 +148,118 @@ body {
       box-shadow: var(--button-shadow-pressed);
     }
 
-    /* Carousel - ITEMS */
+    /* (bron: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::scroll-marker) */
+
+    &::scroll-marker-groupe {
+      display: flex;
+      gap: 0.4em;
+      place-content: center;
+    }
+
+    &::scroll-marker {
+      content: "";
+      border: 1px solid red;
+      height: 1em;
+      width: 1em;
+    }
+
+    &::scroll-markergroupe:target-current {
+      background: red;
+    }
+
+    /* ITEM van carousel*/
     span {
-      margin: 20em 2em 0em 2em;
-      background-color: red;
+      margin: 20em 5em 0em 5em;
       scroll-snap-align: center;
       container-type: scroll-state;
 
-      img {
+      /* LP plaat */
+      > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         height: 30em;
         aspect-ratio: 1/1;
-        fill: black;
+        border-radius: 15em;
+
+        box-shadow: rgba(0, 0, 0, 0.2) 0px -15px 30px 10px;
+
+        /* bron: https://chatgpt.com/share/69b47018-dab4-800c-8939-3d2eb2611e6a */
+        background: conic-gradient(
+          from 320deg at 50% 50%,
+          oklch(0 0 0) 0deg,
+          oklch(0.17 0 0) 30deg,
+          oklch(0.25 0 0) 60deg,
+          oklch(0.17 0 0) 90deg,
+          oklch(0 0 0) 120deg
+        );
 
         @container scroll-state(snapped) {
-          transform: translateY(-50%);
-          transition: all 2s ease;
+          transition: all 1s ease;
+          transform: translateY(-50%) rotate(0deg);
+        }
+
+        /* LP binnerand */
+        > div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 50%;
+          aspect-ratio: 1/1;
+          border: transparent 0px solid;
+          border-radius: 15em;
+          background: conic-gradient(
+            from 0deg at 50% 50%,
+            oklch(0.15 0 0) 0deg,
+            oklch(0.17 0 0) 5deg,
+            oklch(0.2 0 0) 20deg,
+            oklch(0.17 0 0) 35deg,
+            oklch(0.15 0 0) 40deg
+          );
+
+          /* LP label */
+          > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70%;
+            aspect-ratio: 1/1;
+            border: transparent 0px solid;
+            border-radius: 15em;
+
+            background-image: url(../assets/Platen/Label-01.svg);
+
+            /* LP gat */
+            > div {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 12%;
+              aspect-ratio: 1/1;
+              background-color: var(--Background);
+              border: transparent 0px solid;
+              border-radius: 15em;
+            }
+          }
         }
       }
+    }
+
+    /* LP labels: */
+    span:nth-child(1) > div > div > div {
+      background-color: rgb(212, 0, 0);
+    }
+    span:nth-child(2) > div > div > div {
+      background-color: rgb(212, 92, 0);
+    }
+    span:nth-child(3) > div > div > div {
+      background-color: rgb(212, 201, 0);
+    }
+    span:nth-child(4) > div > div > div {
+      background-color: rgb(0, 212, 39);
+    }
+    span:nth-child(5) > div > div > div {
+      background-color: rgb(0, 148, 212);
     }
   }
 
@@ -322,35 +415,19 @@ body {
         padding: 4px;
 
         button {
+          tabindex: 0;
           appearance: none;
           border: none;
           height: 100%;
           width: 100%;
           background-color: var(--button-soccet);
 
+          /* Achor link to carousel buttons */
           &:first-of-type {
-            border-radius: 0.5em 0.1em 0.1em 0.5em;
             anchor-name: --prev;
           }
           &:last-of-type {
-            border-radius: 0.1em 0.5em 0.5em 0.1em;
             anchor-name: --next;
-          }
-          &:hover {
-            cursor: pointer;
-          }
-
-          &:active {
-            background-color: var(--button-colors-pressed);
-            border: transparent;
-            transform: scale(0.99);
-            box-shadow: var(--button-shadow-pressed);
-          }
-
-          svg {
-            height: 1.5em;
-            aspect-ratio: 1/1;
-            fill: var(--button-soccet);
           }
         }
       }
@@ -433,47 +510,83 @@ body {
   }
 }
 /* ------------------------------------------------------------------------------------------------------------------------------ */
-/* span {
-  display: flex;
-  align-items: center;
-  background-color: var(--button-soccet);
-  height: 3em;
-  width: 20em;
-  border-radius: 0.7em;
-  gap: 2px;
-  padding: 4px;
+/* (Bron: https://gemini.google.com/share/4804e215bd10) */
 
-  button {
-    appearance: none;
-    border: none;
-    height: 100%;
-    width: 100%;
-    background-color: var(--button-colors);
-    border-top: var(--light-highlight);
-    border-radius: 1em;
-    box-shadow: var(--button-shadow);
+/* Makes the LP apeare when the on-off button is checke */
+body:has(input[name="on-off"]:checked) {
+  > div:nth-child(2) span {
+    transition: all 0.3s ease;
+  }
 
-    &:first-of-type {
-      border-radius: 0.5em 0.1em 0.1em 0.5em;
-    }
-    &:last-of-type {
-      border-radius: 0.1em 0.5em 0.5em 0.1em;
-    }
-    &:hover {
-      cursor: pointer;
-    }
+  /* Defining the animation */
+  &:has(form > label input:checked) > div:nth-child(2) span {
+    scale: 0.9;
+    transition: all 0.3s ease;
+    animation: wobble 0.3s ease infinite 0.3s;
 
-    &:active {
-      background-color: var(--button-colors-pressed);
-      border: transparent;
-      transform: scale(0.99);
-      box-shadow: var(--button-shadow-pressed);
-    }
-
-    svg {
-      height: 1.5em;
-      aspect-ratio: 1/1;
-      fill: var(--button-soccet);
+    div div div {
+      animation: spin 3s linear infinite 0.3s;
     }
   }
-} */
+
+  /* LP control when on play */
+  &:has(form > label:nth-child(1) input:checked) > div:nth-child(2) span {
+    animation-play-state: running;
+
+    div div div {
+      animation-play-state: running;
+    }
+  }
+
+  /* LP control when on pause */
+  &:has(form > label:nth-child(2) input:checked) > div:nth-child(2) span {
+    animation-play-state: paused;
+    transition: all 0.3s ease; /* Keeps your smooth scale transition */
+
+    div div div {
+      animation-play-state: paused;
+    }
+  }
+}
+
+body:not(:has(input[name="on-off"]:checked)) > div:nth-child(2) span {
+  transform: translateY(20em);
+  transition: all 1s ease;
+}
+
+/* Animations */
+@keyframes wobble {
+  0%,
+  100% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 2deg;
+  }
+}
+
+@keyframes spin {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+/* &:has(form > label:nth-child(1) input:checked) > div:nth-child(2) span {
+  scale: 0.95;
+  animation: wobble 0.3s ease infinite 1s;
+  animation-play-state: running;
+
+  div div div div {
+    animation: spin 2s linear infinite 1s;
+  }
+}
+
+/* LP control when on pause */
+/* &:has(form > label:nth-child(2) input:checked) > div:nth-child(2) span {
+  scale: 0.95;
+  transition: all 0.3s ease;
+  animation-play-state: paused;
+}  */
