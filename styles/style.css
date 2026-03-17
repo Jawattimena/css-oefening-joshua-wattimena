@@ -4,29 +4,45 @@
 }
 
 :root {
+  color-scheme: light dark;
   /* world ---------------------------------------------------------------------------------------------------------------*/
-  --Background: #343434;
-
+  --Background: light-dark(#ffeed2, #343434);
+  --background-shadow: light-dark(
+    oklch(0.4408 0.0617 80.33 / 20%),
+    oklch(0 0 0 / 40%)
+  );
   /* buttons not pressed ---------------------------------------------------------------------------------------------------------------*/
-  --button-colors: oklch(0.3485 0 0);
-  --button-highlight: oklch(0.5624 0 0) 1px solid;
-  --button-soccet: #000000;
-  --button-shadow: rgba(0, 0, 0, 0.2) 0px 15px 3px 0px;
-  --button-shadow-on-button: rgba(0, 0, 0, 0.2) 0px 8px 3px 3px;
-
+  --button-colors: light-dark(rgb(255, 225, 188), oklch(0.3485 0 0));
+  --button-highlight: light-dark (oklch(0.5624 0 0), oklch(0.5624 0 0)) 1px
+    solid;
+  --button-soccet: light-dark(#89774f, #000000);
+  --button-shadow: light-dark(rgba(58, 44, 0, 0.2), rgba(0, 0, 0, 0.2)) 0px 15px
+    3px 0px;
+  --button-shadow-on-button: light-dark(
+      rgba(58, 44, 0, 0.2),
+      rgba(0, 0, 0, 0.2)
+    )
+    0px 8px 3px 3px;
   /* Buttons pressed ---------------------------------------------------------------------------------------------------------------*/
-  --light-in-button-pressed: oklch(0.9012 0.156591 188.2171);
-  --button-colors-pressed: #272727;
-  --button-shadow-pressed: rgba(0, 0, 0, 0.2) 0px 2px 3px 0px;
+  --light-in-button-pressed: light-dark(black, oklch(0.9012 0.156591 188.2171));
+  --button-colors-pressed: light-dark(rgb(222, 192, 155), #272727);
+  --button-shadow-pressed: light-dark(
+    rgba(58, 44, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 0px 2px 3px 0px
+  );
+  --button-icon: light-dark(black, black);
 
   /* Light States ---------------------------------------------------------------------------------------------------------------*/
-  --light-highlight: #ffffff34 1px solid;
+  --light-highlight: light-dark(#fff3c9, #e1e1e157) 1px solid;
+
   --light-off: radial-gradient(
     circle at 50% 20%,
-    rgba(204, 204, 204, 0.561),
-    rgba(217, 217, 217, 0.305),
-    rgba(202, 202, 202, 0.424)
+    rgba(255, 255, 255, 0.358),
+    rgba(206, 206, 206, 0.16),
+    rgba(255, 255, 255, 0.324)
   );
+  --LED-shadow: light-dark(rgba(88, 65, 0, 0.061), rgba(42, 42, 42, 0.833)) 0px
+    3px 3px 0px;
 
   --Light-green: radial-gradient(
     circle at 50% 40%,
@@ -84,7 +100,7 @@ body {
     width: 100vw;
     height: anchor-size(height);
     /* background-color: red; */
-    box-shadow: inset oklch(0 0 0 / 40%) 0px -45px 25px -30px;
+    box-shadow: inset var(--background-shadow) 0px -45px 25px -30px;
     border-bottom: var(--button-soccet) 0.3em solid;
     z-index: 2;
   }
@@ -264,14 +280,26 @@ body {
   }
 
   > div:nth-child(3) {
-    display: flex;
-    align-items: start;
-    gap: 3em;
-    padding: 2em 8em 1em 8em;
-    /* box-shadow: oklch(0 0 0 / 40%) 0px -70px 60px -50px; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "- on-off light"
+      "control control  control";
+
+    gap: 1em;
+    padding: 2em 4em 1em 4em;
+
+    @media (min-width: 580px) {
+      display: flex;
+      align-items: start;
+      gap: 3em;
+      padding: 2em 8em 1em 8em;
+    }
 
     /* ON-OFF BUTTON ------------------------------------------------------------------------------------------------------------ */
     label[for="on-off"] {
+      grid-area: on-off;
+      justify-self: center;
       position: relative;
       width: 4em;
       height: 4em;
@@ -287,7 +315,7 @@ body {
         z-index: 1;
         height: 1.5em;
         aspect-ratio: 1/1;
-        fill: var(--button-soccet);
+        fill: var(--button-icon);
       }
 
       input {
@@ -316,6 +344,8 @@ body {
     /* (bronnen: https://uiverse.io/m1her/splendid-rat-12) */
 
     > div {
+      grid-area: control;
+      justify-self: center;
       display: flex;
       flex-direction: column;
       gap: 1em;
@@ -384,7 +414,7 @@ body {
         svg {
           height: 1.5em;
           aspect-ratio: 1/1;
-          fill: var(--button-soccet);
+          fill: var(--button-icon);
         }
 
         label:has(input:checked),
@@ -437,7 +467,7 @@ body {
     &:not(:has(input[name="on-off"]:checked)) {
       label:has(input:checked) svg,
       label:has(input:active) svg {
-        fill: var(--button-soccet);
+        fill: var(--button-icon);
         filter: none;
       }
     }
@@ -450,6 +480,8 @@ body {
 
     /* OFF ----------------------------------------------------*/
     span {
+      grid-area: light;
+      justify-self: center;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -469,7 +501,7 @@ body {
       width: 1em;
       border-top: var(--light-highlight);
       background: var(--light-off);
-      box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 3px 0px;
+      box-shadow: var(--LED-shadow);
     }
 
     /* ON -----------------------------------------------------*/
@@ -574,19 +606,16 @@ body:not(:has(input[name="on-off"]:checked)) > div:nth-child(2) span {
   }
 }
 
-/* &:has(form > label:nth-child(1) input:checked) > div:nth-child(2) span {
-  scale: 0.95;
-  animation: wobble 0.3s ease infinite 1s;
-  animation-play-state: running;
+/* light glow verwijderd uit de knoppen */
+/* (Bronnen:)
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme */
 
-  div div div div {
-    animation: spin 2s linear infinite 1s;
+@media (prefers-color-scheme: light) {
+  body > div:nth-child(3) {
+    label[for="on-off"]:has(input:checked) svg,
+    > div form label:has(input:checked) svg,
+    > div form label:has(input:active) svg {
+      filter: none;
+    }
   }
 }
-
-/* LP control when on pause */
-/* &:has(form > label:nth-child(2) input:checked) > div:nth-child(2) span {
-  scale: 0.95;
-  transition: all 0.3s ease;
-  animation-play-state: paused;
-}  */

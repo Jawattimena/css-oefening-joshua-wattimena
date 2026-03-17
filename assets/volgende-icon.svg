@@ -4,7 +4,7 @@
   <defs>
     <style>
       .st0 {
-        fill-rule: evenodd;
+        fill-rule: var(--button-icon);
       }
     </style>
   </defs>
