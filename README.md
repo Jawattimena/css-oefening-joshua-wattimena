@@ -92,8 +92,28 @@ Vandaag heb ik de knoppen **‘verder’** en **‘terug’** toegevoegd. De
 
 Ik heb Sanne gevraagd hoe ik de carousel het beste kan maken en hoe scroll snap precies werkt. Verder heb ik vandaag niet heel veel gedaan, maar ik weet nu wel waar ik moet beginnen. Hier ga ik zo snel mogelijk mee verder, zodat het systeem eindelijk iets kan aansturen.
 
+## WEEK 3
+
+In deze week heb ik verder gewerkt aan de ontwikkeling van mijn project en daarbij zowel de vormgeving als de functionaliteit verbeterd.
+
+Aan het begin van de week lag de focus op het structureren van de opmaak. Ik heb mijn volledige CSS opnieuw opgebouwd en overzichtelijk genest waar dat nodig was. Hierbij heb ik veel geleerd over het gebruik van het &-teken binnen geneste CSS. Door deze aanpak blijft de code netjes, logisch opgebouwd en beter onderhoudbaar.
+
+Daarnaast heb ik gewerkt aan de vormgeving van de knoppen. Deze zijn nu volledig ontworpen en visueel uitgewerkt. Een belangrijk technisch aandachtspunt was de verlichting van de knoppen. Eerst bleef deze aan wanneer het apparaat werd uitgeschakeld, maar dit probleem heb ik later opgelost zodat alle lampjes nu correct uitgaan wanneer het systeem uitstaat.
+
+Verder heb ik nieuwe bedieningsknoppen toegevoegd, namelijk **‘verder’** en **‘terug’**. Deze knoppen worden later gekoppeld aan de carousel waarin de platen zich bevinden, zodat gebruikers eenvoudiger kunnen navigeren.
+
+Ook heb ik advies gevraagd aan Sanne over de beste manier om de carousel te bouwen en hoe scroll snap precies werkt. Hierdoor heb ik meer inzicht gekregen in de technische aanpak die nodig is om dit onderdeel goed te realiseren.
+
+Hoewel ik deze week minder zichtbaar resultaat heb geboekt dan gepland, heb ik belangrijke technische verbeteringen doorgevoerd en waardevolle kennis opgedaan. De basis voor verdere ontwikkeling is nu sterker, waardoor ik de komende week verder kan werken aan de functionaliteit van de carousel en het aansturen van het systeem.
+
 ## Dag 7
 
 Vandaag heb ik nog gewerkt aan JavaScript validatie en ben ik naar victor geweest om daar vragen over te stellen omdat ik het niet begreep. Bleek dat ik de constante met de class naam een div selecteerde inplaats van de input. dit is nu gefixed.
 
 Ik ben ook bezig geweest met CSS om een extra thema toe te voegen en ik heb de website responsive gemakt.
+
+## Dag 8
+
+Vandaag ben ik bezig geweest met de typografie voor de titel in de CSS. Ik heb deze verwerkt in een oneindig geanimeerde carrousel. Dit heb ik daarnaast ook in een ander thema vormgegeven. Het scherm gaat aan wanneer de aanknop wordt ingedrukt.
+
+Verder heb ik nagedacht over het toevoegen van een easter egg. De enige hint om deze easter egg te vinden is: 20.

@@ -36,16 +36,22 @@
   );
   --button-icon: light-dark(black, black);
 
+  /* Neon shcerm ---------------------------------------------------------------- */
+  --neon-screen-BG: light-dark(#5d6555, #1e2a31);
+  --neon-screen-BG-when-on: light-dark(#5d6555, #002530);
+  --neon-screen-shadow: light-dark(#42483d, #101619);
+  --neon-screen-fontcolor: light-dark();
+
   /* Light States ---------------------------------------------------------------------------------------------------------------*/
   --light-highlight: light-dark(#fff3c9, #e1e1e157) 1px solid;
 
   --light-off: radial-gradient(
     circle at 50% 20%,
     rgba(255, 255, 255, 0.358),
-    rgba(206, 206, 206, 0.16),
+    rgba(154, 154, 154, 0.186),
     rgba(255, 255, 255, 0.324)
   );
-  --LED-shadow: light-dark(rgba(88, 65, 0, 0.061), rgba(42, 42, 42, 0.833)) 0px
+  --LED-shadow: light-dark(rgba(88, 65, 0, 0.131), rgba(42, 42, 42, 0.833)) 0px
     3px 3px 0px;
 
   --Light-green: radial-gradient(
@@ -610,7 +616,7 @@ body:not(:has(input[name="on-off"]:checked)) > div:nth-child(2) span {
   }
 }
 
-/* light glow verwijderd uit de knoppen */
+/* light glow verwijderd uit de knoppen in light mode*/
 /* (Bronnen:)
 https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme */
 
@@ -621,5 +627,83 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefe
     > div form label:has(input:active) svg {
       filter: none;
     }
+  }
+}
+
+/* <!-- caroucel when off  --> */
+footer {
+  background-color: var(--neon-screen-BG);
+  border: var(--button-soccet) 4px solid;
+  box-shadow: inset 0px 3px 3px 0px var(--neon-screen-shadow);
+  border-radius: 0.3em;
+  width: 20em;
+  overflow-x: auto;
+  display: flex;
+  gap: 0;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* <!-- group --> */
+  > div {
+    display: flex;
+    animation: textbord 5s infinite linear 1s;
+    animation-play-state: paused;
+
+    /* <!-- words --> */
+    > div {
+      flex: 0 0 auto;
+      overflow: hidden;
+      white-space: nowrap;
+
+      font-family: Gridlite PE;
+      font-size: 2em;
+      font-variation-settings: "wght" 550, "BACK" 100, "RECT" 100, "ELSH" 3;
+      color: transparent;
+      text-shadow: none;
+      transition: 0.1s;
+    }
+  }
+}
+
+html:has(input[name="on-off"]:checked) footer {
+  background-color: var(--neon-screen-BG-when-on);
+  border: var(--button-soccet) 4px solid;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* <!-- group --> */
+  > div {
+    display: flex;
+    animation: textbord 5s infinite linear 1s;
+    animation-play-state: running;
+
+    /* <!-- words --> */
+    > div {
+      color: var(--light-in-button-pressed);
+      text-shadow: var(--light-in-button-pressed) 1px 0 10px;
+      transition: 01s;
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  footer > div > div {
+    text-shadow: none;
+    background-color: transparent;
+    font-variation-settings: "wght" 550, "BACK" 00, "RECT" 00, "ELSH" 3;
+  }
+  html:has(input[name="on-off"]:checked) footer div div {
+    text-shadow: none;
+  }
+}
+
+@keyframes textbord {
+  from {
+    translate: 0;
+  }
+  to {
+    translate: -25%;
   }
 }
