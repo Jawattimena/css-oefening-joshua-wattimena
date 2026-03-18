@@ -1,6 +1,11 @@
 @font-face {
   font-family: "Roboto Flex";
-  src: url(https://v-fonts.com/fonts/roboto-flex);
+  src: url(/fonts/RobotoFlex-VariableFont_GRAD\,XOPQ\,XTRA\,YOPQ\,YTAS\,YTDE\,YTFI\,YTLC\,YTUC\,opsz\,slnt\,wdth\,wght.ttf);
+}
+
+@font-face {
+  font-family: "Gridlite PE";
+  src: url(/fonts/GridlitePEVFTRIAL-All.ttf);
 }
 
 :root {
@@ -13,8 +18,7 @@
   );
   /* buttons not pressed ---------------------------------------------------------------------------------------------------------------*/
   --button-colors: light-dark(rgb(255, 225, 188), oklch(0.3485 0 0));
-  --button-highlight: light-dark (oklch(0.5624 0 0), oklch(0.5624 0 0)) 1px
-    solid;
+  --button-highlight: light-dark(#fff3c9, #e1e1e157) 1px solid;
   --button-soccet: light-dark(#89774f, #000000);
   --button-shadow: light-dark(rgba(58, 44, 0, 0.2), rgba(0, 0, 0, 0.2)) 0px 15px
     3px 0px;
@@ -321,7 +325,7 @@ body {
       input {
         appearance: none;
         background-color: var(--button-colors);
-        border-top: var(--button-highlight);
+        border-top: var(--light-highlight);
         box-shadow: var(--button-shadow-on-button);
         border-radius: 3em;
         width: 100%;
