@@ -117,3 +117,11 @@ Ik ben ook bezig geweest met CSS om een extra thema toe te voegen en ik heb de w
 Vandaag ben ik bezig geweest met de typografie voor de titel in de CSS. Ik heb deze verwerkt in een oneindig geanimeerde carrousel. Dit heb ik daarnaast ook in een ander thema vormgegeven. Het scherm gaat aan wanneer de aanknop wordt ingedrukt.
 
 Verder heb ik nagedacht over het toevoegen van een easter egg. De enige hint om deze easter egg te vinden is: 20.
+
+## Reflectie
+
+Dit blok heb ik heel veel dingen geleerd over hoe je html elementen in css sellecteerd zonder classes en het nesten van css op structuur te creeeren in je css. Ik heb geleerd wat de kracht kan zijn van CSS zonder het moeten gebruiken van JavaScript.
+
+Ik heb ook gezien wat anchor positioning kan en hoe handig dat kan zijn. Ik moet me er nog wel verder in verdiepen om de volledige potentie nog te begrijpen maar ik vind het al een hele interresante regel.
+
+Ik ben ook erg trots op het eind resultaat en het is super goed gelukt tot in de details.
