@@ -122,6 +122,9 @@ Verder heb ik nagedacht over het toevoegen van een easter egg. De enige hint om 
 
 Dit blok heb ik heel veel dingen geleerd over hoe je html elementen in css sellecteerd zonder classes en het nesten van css op structuur te creeeren in je css. Ik heb geleerd wat de kracht kan zijn van CSS zonder het moeten gebruiken van JavaScript.
 
+<img width="591" height="434" alt="Screenshot 2026-03-19 at 14 25 06" src="https://github.com/user-attachments/assets/a13c134e-d103-44d7-ba54-a063058c2928" />
+
+
 Ik heb ook gezien wat anchor positioning kan en hoe handig dat kan zijn. Ik moet me er nog wel verder in verdiepen om de volledige potentie nog te begrijpen maar ik vind het al een hele interresante regel.
 
 Ik ben ook erg trots op het eind resultaat en het is super goed gelukt tot in de details.
